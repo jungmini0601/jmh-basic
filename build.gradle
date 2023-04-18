@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id "me.champeau.jmh" version "0.7.1"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+jmh {
+    fork = 1
+    warmupIterations = 1
+    iterations = 1
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    jmh 'org.openjdk.jmh:jmh-core:0.9'
+    jmh 'org.openjdk.jmh:jmh-generator-annprocess:0.9'
+}
+
+test {
+    useJUnitPlatform()
+}
